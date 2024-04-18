@@ -7,7 +7,7 @@ data() {
     return {
       curIndex: 0,
       activeClass: true,
-      
+
       images: [
         {
           image: "img/01.webp",
@@ -36,6 +36,16 @@ data() {
         },
       ]
     }
+},
+created() {
+  setInterval(() => {
+    if (this.curIndex < this.images.length -1 ) {
+      this.curIndex++
+    }else {
+      this.curIndex = 0
+    }
+  }, 3000) 
+
 },
 methods: {
   showNext: function() {
