@@ -59,9 +59,9 @@ div.my-next > span::after{
     line-height: 30px;
 }
 
-div.my-carousel-item{
+/* div.my-carousel-item{
     display: none;
-}
+} */
 
 div.my-carousel-item.active{
     display: block;

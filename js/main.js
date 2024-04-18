@@ -1,36 +1,63 @@
-const images = [
-  {
-    image: "img/01.webp",
-    title: "Marvel's Spiderman Miles Morale",
-    text: "Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.",
+
+
+const {createApp} = Vue
+
+createApp ( {
+data() {
+    return {
+      curIndex: 0,
+      activeClass: "active",
+      images: [
+        {
+          image: "img/01.webp",
+          title: "Marvel's Spiderman Miles Morale",
+          text: "Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.",
+        },
+        {
+          image: "img/02.webp",
+          title: "Ratchet & Clank: Rift Apart",
+          text: "Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality.",
+        },
+        {
+          image: "img/03.webp",
+          title: "Fortnite",
+          text: "Grab all of your friends and drop into Epic Games Fortnite, a massive 100 - player face - off that combines looting, crafting, shootouts and chaos.",
+        },
+        {
+          image: "img/04.webp",
+          title: "Stray",
+          text: "Lost, injured and alone, a stray cat must untangle an ancient mystery to escape a long-forgotten city",
+        },
+        {
+          image: "img/05.webp",
+          title: "Marvel's Avengers",
+          text: "Marvel's Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.",
+        },
+      ]
+    }
+},
+methods: {
+  showNext: function() {
+    console.log("showNext");
+    if (this.curIndex < this.images.length -1 ) {
+      this.curIndex++
+     
+    }else {
+      this.curIndex = 0
+    }
   },
-  {
-    image: "img/02.webp",
-    title: "Ratchet & Clank: Rift Apart",
-    text: "Go dimension-hopping with Ratchet and Clank as they take on an evil emperor from another reality.",
-  },
-  {
-    image: "img/03.webp",
-    title: "Fortnite",
-    text: "Grab all of your friends and drop into Epic Games Fortnite, a massive 100 - player face - off that combines looting, crafting, shootouts and chaos.",
-  },
-  {
-    image: "img/04.webp",
-    title: "Stray",
-    text: "Lost, injured and alone, a stray cat must untangle an ancient mystery to escape a long-forgotten city",
-  },
-  {
-    image: "img/05.webp",
-    title: "Marvel's Avengers",
-    text: "Marvel's Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.",
-  },
-];
+  showPrevious: function() {
+    console.log("showPrevious");
+    if (this.curIndex == 0 ) {
+      this.curIndex = this.images.length - 1
+    }else {
+      this.curIndex--
+    }
+  }
+}
+}).mount("#app")
 
-
-
-
-
-
+//this.activeClass = !this.activeClass
 
 
 
@@ -119,91 +146,91 @@ const images = [
 
 
 
-//bonus 1
-//prendo la classe dove mi interessa poi metterci la stampa
-const imagMiniSlide = document.querySelectorAll(".my-thumbnail");
-console.log(imagMiniSlide);
+// //bonus 1
+// //prendo la classe dove mi interessa poi metterci la stampa
+// const imagMiniSlide = document.querySelectorAll(".my-thumbnail");
+// console.log(imagMiniSlide);
 
-//setto a 0 l'indice corrente
-let activMiniImag = 0;
+// //setto a 0 l'indice corrente
+// let activMiniImag = 0;
 
-//aggiungo la classe active all'indice corrente
-imagMiniSlide[activMiniImag].classList.add("active");
-console.log(imagMiniSlide[activMiniImag]);
+// //aggiungo la classe active all'indice corrente
+// imagMiniSlide[activMiniImag].classList.add("active");
+// console.log(imagMiniSlide[activMiniImag]);
 
-//al click del bottone next 
-document.querySelector(".my-next").addEventListener("click", clickMiniNext)
+// //al click del bottone next 
+// document.querySelector(".my-next").addEventListener("click", clickMiniNext)
 
 
-function clickMiniNext() {
+// function clickMiniNext() {
  
-  //rimuovo la classe
-  imagMiniSlide[activMiniImag].classList.remove("active")
-  if (activMiniImag < imagMiniSlide.length - 1) {
-    activMiniImag++
+//   //rimuovo la classe
+//   imagMiniSlide[activMiniImag].classList.remove("active")
+//   if (activMiniImag < imagMiniSlide.length - 1) {
+//     activMiniImag++
 
-  } else {
-    activMiniImag = 0
-  }
-  //aggiungo la classe
-  imagMiniSlide[activMiniImag].classList.add("active");
+//   } else {
+//     activMiniImag = 0
+//   }
+//   //aggiungo la classe
+//   imagMiniSlide[activMiniImag].classList.add("active");
 
-}
-
-
+// }
 
 
-//al click del bottone previous
-document.querySelector(".my-previous").addEventListener("click", clickMiniPrevious);
-  //milestone 1 e 2
-  //rimuovo la classe
-  function clickMiniPrevious() {
+
+
+// //al click del bottone previous
+// document.querySelector(".my-previous").addEventListener("click", clickMiniPrevious);
+//   //milestone 1 e 2
+//   //rimuovo la classe
+//   function clickMiniPrevious() {
     
-    imagMiniSlide[activMiniImag].classList.remove("active")
+//     imagMiniSlide[activMiniImag].classList.remove("active")
 
-  //Se l'indice corrente è 0, 
-  //   imposta l'indice sul immag finale, 
-  //altrimenti 
-  //   decrementa l'indice
+//   //Se l'indice corrente è 0, 
+//   //   imposta l'indice sul immag finale, 
+//   //altrimenti 
+//   //   decrementa l'indice
 
-  if (activMiniImag == 0) {
+//   if (activMiniImag == 0) {
 
-    activMiniImag = imagMiniSlide.length - 1
+//     activMiniImag = imagMiniSlide.length - 1
 
-  } else {
-    activMiniImag--
+//   } else {
+//     activMiniImag--
 
 
-  }
-  //aggiungo la classe
-  imagMiniSlide[activMiniImag].classList.add("active");
-}
+//   }
+//   //aggiungo la classe
+//   imagMiniSlide[activMiniImag].classList.add("active");
+// }
   
-//bonus 2
-let clock = setInterval(clickNext, 3000)
-let clockMini = setInterval(clickMiniNext, 3000)
+// //bonus 2
+// let clock = setInterval(clickNext, 3000)
+// let clockMini = setInterval(clickMiniNext, 3000)
 
-document.getElementById("my-stop-button").addEventListener("click", function() {
-  //se l'interval è attivo
-  //lo stoppo
-  //altrimenti
-  //lo faccio ripartire
-  if (clock !== null) {
-    clearInterval(clock);
-    clock = null;
-  }else {
-    clock = setInterval(clickNext, 3000);
+// document.getElementById("my-stop-button").addEventListener("click", function() {
+//   //se l'interval è attivo
+//   //lo stoppo
+//   //altrimenti
+//   //lo faccio ripartire
+//   if (clock !== null) {
+//     clearInterval(clock);
+//     clock = null;
+//   }else {
+//     clock = setInterval(clickNext, 3000);
     
-  }
-  if (clockMini !== null) {
-    clearInterval(clockMini);
-    clockMini = null;
-  }else {
-    clockMini = setInterval(clickMiniNext, 3000);
+//   }
+//   if (clockMini !== null) {
+//     clearInterval(clockMini);
+//     clockMini = null;
+//   }else {
+//     clockMini = setInterval(clickMiniNext, 3000);
     
-  }
+//   }
 
-})
+// })
 
 
 
