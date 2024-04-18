@@ -45,7 +45,6 @@ created() {
     }else {
       this.curIndex = 0
     }
-   
   }, 3000) 
 
 },
@@ -61,7 +60,7 @@ methods: {
     }else {
       this.curIndex = 0
     }
-    
+   
    
   },
   showPrevious: function() {
@@ -75,7 +74,7 @@ methods: {
       this.curIndex--
     }
   },
-  
+ 
 }
 }).mount("#app")
 
