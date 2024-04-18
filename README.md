@@ -3,6 +3,9 @@
 
 # Bonus:
 - [x] creare dei thumb
-- [ ] al click su una thumb, visualizzare in grande l'immagine corrispondente
+- [x] al click su una thumb, visualizzare in grande l'immagine corrispondente
 - [ ] applicare l'autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente
 - [ ] Gestire lo stop di autoplay e l'inversione
+
+
+

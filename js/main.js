@@ -6,7 +6,8 @@ createApp ( {
 data() {
     return {
       curIndex: 0,
-      activeClass: "active",
+      activeClass: true,
+      
       images: [
         {
           image: "img/01.webp",
