@@ -50,7 +50,7 @@
             </div>
             <div class="my-thumbnails position-relative" >
               <!-- prev -->
-              <div class="my-previous position-absolute" @click="showPrevious" @click="stopInterval">
+              <div class="my-previous position-absolute" @click="showPrevious">
                 <span class="my-prev-hook"></span>
               </div>
               <!-- next -->
@@ -64,13 +64,13 @@
           </div>
         </div>
 
-        <!-- <div class="col-12 p-3" id="my-after-carousel">
-          <button id="my-order-button" class="btn btn-primary">
+        <div class="col-12 p-3" id="my-after-carousel">
+          <button id="my-order-button" class="btn btn-primary"  @click="invertScor" >
             Inverti l'ordine di scorrimento
           </button>
-          <button id="my-stop-button" class="btn btn-primary">
+          <button id="my-stop-button" class="btn btn-primary" @click="stopInterval">
             Interrompi / Fai ripartire lo scorrimento
-          </button> -->
+          </button> 
         </div>
       </div>
     </div>

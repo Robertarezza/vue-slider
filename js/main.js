@@ -7,7 +7,7 @@ data() {
     return {
       curIndex: 0,
       activeClass: true,
-      interval: "",
+      interval: null,
       images: [
         {
           image: "img/01.webp",
@@ -52,8 +52,6 @@ methods: {
   showNext: function() {
     console.log("showNext");
 
-   clearInterval(this.interval)
-
     if (this.curIndex < this.images.length -1 ) {
       this.curIndex++
      
@@ -66,16 +64,39 @@ methods: {
   showPrevious: function() {
     console.log("showPrevious");
     
-    clearInterval(this.interval)
-
     if (this.curIndex == 0 ) {
       this.curIndex = this.images.length - 1
     }else {
       this.curIndex--
     }
   },
- 
+  stopInterval: function() {
+    console.log("stopInterval");
+
+    if(this.interval !== null) {
+      clearInterval(this.interval)
+    }else {
+      this.interval = null
+    }
+    
+  },
+  
+  invertScor: function () {
+    console.log("invertScor"); 
+    clearInterval(this.interval)
+    this.interval = null
+    this.interval = setInterval(() => {
+      if (this.curIndex == 0 ) {
+        this.curIndex = this.images.length - 1
+      }else {
+        this.curIndex--
+      }
+    }, 3000) 
+   
 }
+  },
+
+ 
 }).mount("#app")
 
 
